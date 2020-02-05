@@ -31,7 +31,7 @@ var myGameArea = {
         this.canvas.height = 540;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.interval = setInterval(updateGameArea, 20);    // Updates every 20ms
+        this.interval = setInterval(updateGameArea, 10);    // Updates every 10ms
         // Recognize key press:
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode;
@@ -86,7 +86,7 @@ function updateGameArea() {
 
 </script>
 
-<p>First Demo (Make sure focus is on this window)</p>
+<p>Game Demo (Will make conditional spotify calls based on game state)</p>
 
 </body>
 </html>
