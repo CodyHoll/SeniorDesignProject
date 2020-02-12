@@ -1,0 +1,172 @@
+<!-- Test/Demo game to showcase how we intend
+on working with Spotify's API calls -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script>
+    window.onSpotifyWebPlaybackSDKReady = () => {
+    const token = 'BQB4iVm2Kcpg5_5dc_JJe66yg4vkR6c6MeWulLmqvz7DYbRWLeGcGB50ZESnk_uWx-04AytLKFsbgd4v0potGh9loWJHVkSYW4gneLDWkjve8vh7iWSay04payLtkZHbPCLFjw3Z2onDlbJOTMc3KzKqyv54zxrC2oCqU77A';
+    const player = new Spotify.Player({
+        name: 'Web Playback SDK Quick Start Player',
+        getOAuthToken: cb => { cb(token); },
+        volume: 0.5
+    });
+
+    // Error handling
+    player.addListener('initialization_error', ({ message }) => { console.error(message); });
+    player.addListener('authentication_error', ({ message }) => { console.error(message); });
+    player.addListener('account_error', ({ message }) => { console.error(message); });
+    player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+    // Playback status updates
+    player.addListener('player_state_changed', state => { console.log(state); });
+
+    // Ready
+    player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+    });
+
+    // Not Ready
+    player.addListener('not_ready', ({ device_id }) => {
+        console.log('Device ID has gone offline', device_id);
+    });
+
+    // Connect to the player!
+    player.connect().then(success => {
+        if (success) {
+            console.log('The Web Playback SDK successfully connected to Spotify!');
+            //play a song
+        }
+      });
+
+};
+
+
+  </script>
+
+
+
+<script>
+
+var myGamePiece;
+var myPortal;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "orange", 10, 120);
+    myPortal = new component(30, 30, "darkturquoise", 600, 270);
+    myGameArea.start();
+}
+
+var myGameArea = {
+
+    // Creating 2d Canvas workspace:
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 960;
+        this.canvas.height = 540;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 10);    // Updates every 10ms
+        // Recognize key press:
+        window.addEventListener('keydown', function (e) {
+            myGameArea.key = e.keyCode;
+        })
+        // Recognize key release:
+        window.addEventListener('keyup', function (e) {
+            myGameArea.key = false;
+        })
+    },
+
+    // Clear function required so component doesn't
+    // leave a "trail" behind while moving:
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+
+    // Stop game when myGamePiece touches myPortal:
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+
+    // context/ctx: updating component's movements
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+
+    // Sets new position according to updateGameArea():
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+
+    this.touch = function(portal) {
+        // mgp = myGamePiece
+        var mgpLeft = this.x;
+        var mgpTop = this.y;
+        var mgpRight = this.x + (this.width);
+        var mgpBottom = this.y + (this.height);
+
+        // mpo = myPortal
+        var mpoLeft = portal.x;
+        var mpoTop = portal.y;
+        var mpoRight = portal.x + (portal.width);
+        var mpoBottom = portal.y + (portal.height);
+
+        // check if any of the coordinates overlap:
+        var touched = true;
+        if ((mgpBottom < mpoTop) || (mgpTop > mpoBottom) || (mgpRight < mpoLeft) || (mgpLeft > mpoRight)) {
+        touched = false;
+        }
+        return touched;
+    }
+}
+
+// Movement comes from this function.
+// This is used by interval to update
+// game area and component:
+function updateGameArea() {
+    // Check if myGamePiece touched portal.
+    // Otherwise, update movement:
+    if (myGamePiece.touch(myPortal)) {
+        alert("Song Request!");
+        myGameArea.stop();
+    } else {
+        myGameArea.clear();
+        myGamePiece.speedX = 0;
+        myGamePiece.speedY = 0;
+        if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = -4; }
+        if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = 4; }
+        if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -4; }
+        if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 4; }
+        myGamePiece.newPos();
+        myGamePiece.update();
+        myPortal.update();
+    }
+}
+
+</script>
+
+<p>Game Demo (Will make conditional spotify calls based on game state)</p>
+
+</body>
+</html>
