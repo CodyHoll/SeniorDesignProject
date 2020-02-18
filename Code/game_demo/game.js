@@ -3,6 +3,8 @@ var myGamePiece;
 var myPortal;
 
 function startGame() {
+    // do-while loop preventing myGamePiece and myPortal
+    // from spawning in conflicting areas a.k.a already touching:
     do {
         myGameArea.key = false;
         var randX = getRandomInt(30, 930);
