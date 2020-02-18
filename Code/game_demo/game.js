@@ -1,4 +1,3 @@
-
 var myGamePiece;
 var myPortal;
 var canvasWidth = 960;
@@ -100,9 +99,27 @@ function component(width, height, color, x, y) {
         var mgpBottom = this.y + (this.height);
 
         var crashed = false;
+
         if ((mgpBottom > canvasHeight) || (mgpTop < 0) || (mgpRight > canvasWidth) || (mgpLeft < 0)) {
             crashed = true;
+
+            // Moving box back to where it was
+            // before crashing into the boundary:
+            if (mgpBottom > canvasHeight) {
+                myGamePiece.speedY = -4;
+            } else if (mgpTop < 0) {
+                myGamePiece.speedY = 4;
+            } else if (mgpRight > canvasWidth) {
+                myGamePiece.speedX = -4;
+            } else if (mgpLeft < 0) {
+                myGamePiece.speedX = 4;
+            }
+
+            // Update position (back to where it was):
+            myGamePiece.newPos();
+            myGamePiece.update();
         }
+
         return crashed;
     }
 }
@@ -113,18 +130,15 @@ function component(width, height, color, x, y) {
 function updateGameArea() {
     // Check if myGamePiece touched portal.
     // Otherwise, update movement:
-    if (myGamePiece.touch(myPortal)) {
+
+    breakMove : if (myGamePiece.touch(myPortal)) {
         alert("Song Request!");
         myGameArea.stop();
         startGame();
     } else if (myGamePiece.crash()) {
-        if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = 4;}
-        if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = -4;}
-        if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = 4;}
-        if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = -4;}
-        myGamePiece.newPos();
-        myGamePiece.update();
-        myGameArea.key = false;
+        // crash function took care trying to run past boudaries
+        // console.log("Crash");
+        break breakMove;
     } else {
         myGameArea.clear();
         myGamePiece.speedX = 0;
