@@ -1,6 +1,8 @@
 
 var myGamePiece;
 var myPortal;
+var canvasWidth = 960;
+var canvasHeight = 540;
 
 function startGame() {
     // do-while loop preventing myGamePiece and myPortal
@@ -20,12 +22,11 @@ function startGame() {
 }
 
 var myGameArea = {
-    
     // Creating 2d Canvas workspace:
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 960;
-        this.canvas.height = 540;
+        this.canvas.width = canvasWidth;
+        this.canvas.height = canvasHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 10);    // Updates every 10ms
@@ -58,7 +59,7 @@ function component(width, height, color, x, y) {
     this.y = y;    
 
     // context/ctx: updating component's movements
-    this.update = function(){
+    this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -86,9 +87,23 @@ function component(width, height, color, x, y) {
         // check if any of the coordinates overlap:
         var touched = true;
         if ((mgpBottom < mpoTop) || (mgpTop > mpoBottom) || (mgpRight < mpoLeft) || (mgpLeft > mpoRight)) {
-        touched = false;
+            touched = false;
         }
         return touched;
+    }
+
+    this.crash = function() {
+        // mgp = myGamePiece
+        var mgpLeft = this.x;
+        var mgpTop = this.y;
+        var mgpRight = this.x + (this.width);
+        var mgpBottom = this.y + (this.height);
+
+        var crashed = false;
+        if ((mgpBottom > canvasHeight) || (mgpTop < 0) || (mgpRight > canvasWidth) || (mgpLeft < 0)) {
+            crashed = true;
+        }
+        return crashed;
     }
 }
 
@@ -102,14 +117,22 @@ function updateGameArea() {
         alert("Song Request!");
         myGameArea.stop();
         startGame();
+    } else if (myGamePiece.crash()) {
+        if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = 4;}
+        if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = -4;}
+        if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = 4;}
+        if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = -4;}
+        myGamePiece.newPos();
+        myGamePiece.update();
+        myGameArea.key = false;
     } else {
         myGameArea.clear();
         myGamePiece.speedX = 0;
         myGamePiece.speedY = 0;
-        if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = -4; }
-        if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = 4; }
-        if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -4; }
-        if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 4; }
+        if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = -4;}
+        if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = 4;}
+        if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -4;}
+        if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 4;}
         myGamePiece.newPos();
         myGamePiece.update();
         myPortal.update();
