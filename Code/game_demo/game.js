@@ -3,13 +3,16 @@ var myGamePiece;
 var myPortal;
 
 function startGame() {
-    var randX = getRandomInt(30, 930);
-    var randY = getRandomInt(30, 510);
-    myGamePiece = new component(30, 30, "orange", randX, randY);
+    do {
+        myGameArea.key = false;
+        var randX = getRandomInt(30, 930);
+        var randY = getRandomInt(30, 510);
+        myGamePiece = new component(30, 30, "orange", randX, randY);
 
-    var randX = getRandomInt(30, 930);
-    var randY = getRandomInt(30, 510);
-    myPortal = new component(30, 30, "darkturquoise", randX, randY);
+        var randX = getRandomInt(30, 930);
+        var randY = getRandomInt(30, 510);
+        myPortal = new component(30, 30, "darkturquoise", randX, randY);
+    } while (myGamePiece.touch(myPortal));
 
     myGameArea.start();
 }
@@ -96,7 +99,6 @@ function updateGameArea() {
     if (myGamePiece.touch(myPortal)) {
         alert("Song Request!");
         myGameArea.stop();
-        myGameArea.key = false;
         startGame();
     } else {
         myGameArea.clear();
