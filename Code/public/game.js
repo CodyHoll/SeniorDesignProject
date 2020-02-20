@@ -94,6 +94,10 @@ document.querySelector("#thunderAtChorus").addEventListener("click", () => {
 
 var myGamePiece;
 var myPortal;
+var mySunflower;                // play song from the beginning
+var myPlayFromHalf;             // play song from the halfway point
+var myPause;                    // pause song
+var myResume;                   // resume song
 var canvasWidth = 960;
 var canvasHeight = 540;
 
@@ -102,13 +106,25 @@ function startGame() {
     // from spawning in conflicting areas a.k.a already touching:
     do {
         myGameArea.key = false;
-        var randX = getRandomInt(30, 930);
+        var randX = getRandomInt(50, 930);
         var randY = getRandomInt(30, 510);
         myGamePiece = new component(30, 30, "orange", randX, randY);
 
-        var randX = getRandomInt(30, 930);
+        var randX = getRandomInt(50, 930);
         var randY = getRandomInt(30, 510);
         myPortal = new component(30, 30, "darkturquoise", randX, randY);
+
+        mySunflower = new component(30, 30, "gold", 10, 10);
+        
+        myPlayFromHalf = new component(30, 30, "khaki", 10, 70);
+
+        myResume = new component(30, 30, "green", 10, 130);
+        
+        myPause = new component(30, 30, "red", 10, 190);
+
+    // don't worry about crashing with buttons on the left because
+    // getRandomInt for X coordinate accounts for an interval of 40
+    // to make sure they myGamePiece and myPortal don't spawn near them:
     } while (myGamePiece.touch(myPortal));
 
     myGameArea.start();
@@ -228,13 +244,39 @@ function updateGameArea() {
     breakMove : if (myGamePiece.touch(myPortal)) {
         // alert("Song Request!");
         playSong('57bgtoPSgt236HzfBOd8kj');
-        console.log("song");
+        console.log("thunderstruck");
         myGameArea.stop();
         startGame();
+
+    } else if (myGamePiece.touch(mySunflower)) {         // touch mySunflower (gold)
+        playSong('0RiRZpuVRbi7oqRdSMwhQY');
+        console.log("sunflower");
+        myGameArea.stop();
+        startGame();
+
+    } else if (myGamePiece.touch(myPlayFromHalf)) {     // touch myPlayFromHalf (khaki)
+        player.seek(111 * 1000);
+        console.log("song from halfway point");
+        myGameArea.stop();
+        startGame();
+        
+    } else if (myGamePiece.touch(myResume)) {          // touch myResume (green)
+        resumeSong();
+        console.log("resume");
+        myGameArea.stop();
+        startGame();
+        
+    } else if (myGamePiece.touch(myPause)) {          // touch myPause (red)
+        pauseSong();
+        console.log("pause");
+        myGameArea.stop();
+        startGame();
+
     } else if (myGamePiece.crash()) {
         // crash function took care trying to run past boudaries
         // console.log("Crash");
         break breakMove;
+
     } else {
         myGameArea.clear();
         myGamePiece.speedX = 0;
@@ -244,8 +286,12 @@ function updateGameArea() {
         if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -4;}
         if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 4;}
         myGamePiece.newPos();
-        myGamePiece.update();
-        myPortal.update();
+        myGamePiece.update();       // display myGamePiece
+        myPortal.update();          // display myPortal
+        mySunflower.update();       // display mySunflower
+        myPlayFromHalf.update();    // display myPlayFromHalf
+        myResume.update();          // display myResume
+        myPause.update();           // display myPause
     }
 }
 
@@ -254,6 +300,5 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
 
 startGame();
