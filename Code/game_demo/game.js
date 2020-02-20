@@ -1,5 +1,7 @@
 var myGamePiece;
 var myPortal;
+var myRequestStart;             // play song from the beginning
+var myRequestHalf;              // play song from the halfway point
 var canvasWidth = 960;
 var canvasHeight = 540;
 
@@ -15,7 +17,18 @@ function startGame() {
         var randX = getRandomInt(30, 930);
         var randY = getRandomInt(30, 510);
         myPortal = new component(30, 30, "darkturquoise", randX, randY);
-    } while (myGamePiece.touch(myPortal));
+        
+        var randX = getRandomInt(30, 930);
+        var randY = getRandomInt(30, 510);
+        myRequestStart = new component(30, 30, "green", 60, 40);
+        
+        var randX = getRandomInt(30, 930);
+        var randY = getRandomInt(30, 510);
+        myRequestHalf = new component(30, 30, "red", 100, 40);
+
+    } while (myGamePiece.touch(myPortal) && myGamePiece.touch(myRequestStart) && myGamePiece.touch(myRequestHalf)
+                && myPortal.touch(myRequestStart) && myPortal.touch(myRequestHalf)
+                && myRequestStart.touch(myRequestHalf));
 
     myGameArea.start();
 }
@@ -131,14 +144,26 @@ function updateGameArea() {
     // Check if myGamePiece touched portal.
     // Otherwise, update movement:
 
-    breakMove : if (myGamePiece.touch(myPortal)) {
+    breakMove : if (myGamePiece.touch(myPortal)) {          // touch portal (blue)
         alert("Song Request!");
         myGameArea.stop();
         startGame();
+
+    } else if (myGamePiece.touch(myRequestStart)) {         // touch myRequestStart (green)
+        alert("Song from the beginning");
+        myGameArea.stop();
+        startGame();
+
+    } else if (myGamePiece.touch(myRequestHalf)) {          // touch myRequestHalf (red)
+        alert("Song from halfway point");
+        myGameArea.stop();
+        startGame();
+
     } else if (myGamePiece.crash()) {
         // crash function took care trying to run past boudaries
         // console.log("Crash");
         break breakMove;
+
     } else {
         myGameArea.clear();
         myGamePiece.speedX = 0;
@@ -150,6 +175,8 @@ function updateGameArea() {
         myGamePiece.newPos();
         myGamePiece.update();
         myPortal.update();
+        myRequestStart.update();
+        myRequestHalf.update();
     }
 }
 
