@@ -1,0 +1,30 @@
+<!-- Test/Demo game to showcase how we intend
+on working with Spotify's API calls -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+        </style>
+        <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <p>Game Demo (Will make conditional spotify calls based on game state)</p>
+        <footer>
+            <button id="thunder" class="btn btn-primary">Thunderstruck</button>
+            <button id="pause" class="btn btn-secondary">Pause</button>
+            <button id="resume" class="btn btn-secondary">Resume</button>
+            <button id="sunflower" class="btn btn-primary">Sunflower</button>
+            <button id="thunderAtChorus" class="btn btn-primary">Thunderstruck at chorus</button>
+        </footer>
+
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+        <script src="/game.js"></script>
+    </body>
+</html>
