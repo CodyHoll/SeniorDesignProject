@@ -256,7 +256,7 @@ function updateGameArea() {
 
     } else if (myGamePiece.touch(myPlayFromHalf)) {     // touch myPlayFromHalf (khaki)
         player.seek(111 * 1000);
-        console.log("song from halfway point");
+        console.log("song from  point");
         myGameArea.stop();
         startGame();
         
