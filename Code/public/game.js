@@ -35,14 +35,14 @@ function resumeSong() {
         console.log('Resumed!');
       });
 }
- 
+
 function onSpotifyPlayerAPIReady() {
   player = new Spotify.Player({
     name: 'Int Elligence; Player',
     getOauthToken: function (callback) { callback(accessToken); },
     volume: 0.8
   });
-  
+
   // Ready
   player.on('ready', function (data) {
     deviceId = data.device_id;
@@ -115,11 +115,11 @@ function startGame() {
         myPortal = new component(30, 30, "darkturquoise", randX, randY);
 
         mySunflower = new component(30, 30, "gold", 10, 10);
-        
+
         myPlayFromHalf = new component(30, 30, "khaki", 10, 70);
 
         myResume = new component(30, 30, "green", 10, 130);
-        
+
         myPause = new component(30, 30, "red", 10, 190);
 
     // don't worry about crashing with buttons on the left because
@@ -146,7 +146,12 @@ var myGameArea = {
         // Recognize key release:
         window.addEventListener('keyup', function (e) {
             myGameArea.key = false;
-        })        
+        })
+        window.addEventListener("keydown", function (e) {
+          if(e.keyCode = 32) {
+            e.preventDefault();
+          }
+        })
     },
 
     // Clear function required so component doesn't
@@ -165,7 +170,7 @@ function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
     this.x = x;
-    this.y = y;    
+    this.y = y;
 
     // context/ctx: updating component's movements
     this.update = function() {
@@ -177,7 +182,7 @@ function component(width, height, color, x, y) {
     // Sets new position according to updateGameArea():
     this.newPos = function() {
         this.x += this.speedX;
-        this.y += this.speedY;        
+        this.y += this.speedY;
     }
 
     this.touch = function(portal) {
@@ -259,13 +264,13 @@ function updateGameArea() {
         console.log("song from halfway point");
         myGameArea.stop();
         startGame();
-        
+
     } else if (myGamePiece.touch(myResume)) {          // touch myResume (green)
         resumeSong();
         console.log("resume");
         myGameArea.stop();
         startGame();
-        
+
     } else if (myGamePiece.touch(myPause)) {          // touch myPause (red)
         pauseSong();
         console.log("pause");

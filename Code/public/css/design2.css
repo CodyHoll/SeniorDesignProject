@@ -2,7 +2,7 @@
 
 body {
   background:black;
-  
+
 }
 
 #exit {
@@ -18,36 +18,9 @@ body {
   -webkit-transition:0.5s;
   transition:0.5s;
   cursor:pointer;
-  
-}
-#exit:after {
-  content:"";
-  display:block;
-  height:15px;
-  width:15px;
-  background:transparent;
-  border-radius:50px;
-  position:absolute;
-  top:5px;
-  left:5px;
-  
-  border:3px solid orange;
-  border-top-color:transparent;
-  
+
 }
 
-#exit:before {
-  content:"";
-  display:block;
-  height:10px;
-  width:3px;
-  background:orange;
-  z-index:70;
-  position:Absolute;
-  right:13px;
-  top:6px;
-  
-}
 #circle {
   height:40px;
   width:40px;
@@ -58,12 +31,12 @@ body {
   top:-35px;
   z-index:40;
   right:-20px;
-  
+
 }
 
 #exit:hover {
   background:#7A0000;
-  
+
 }
 
 
@@ -77,21 +50,17 @@ body {
   border-top: 300px solid transparent;
   border-radius: px;
   position:relative;
-  margin:auto;
+  margin: 0 auto;
+  margin-top: 20%;
   top:5px;
   left:2px;
-  
-  
-  
-  
-  
-  
+
 }
 
-#single {
-  
-  position:relative;
-  bottom:330px;
+#play {
+
+position:relative;
+  bottom: 320px;
   right:300px;
   height:50px;
   width:600px;
@@ -103,30 +72,30 @@ body {
   transition:0.5s;
   color:orange;
   font-family:shadows into light;
-  
+
   cursor:pointer;
-  
-  
-  
+
+
+
 }
 
-#single:hover {
+#play:hover {
   background:#7A0000;
   color:white;
 -webkit-transform:rotate(-1deg);
   transform:rotate(-2deg);
-  
-  
+
+
 }
 
-#multiplayer:hover {
+#spotify:hover {
   background:#7A0000;
   color:white;
-   
+
   -webkit-transform:rotate(-2deg);
   transform:rotate(-2deg);
-  
-  
+
+
 }
 
 #credits:hover {
@@ -134,7 +103,7 @@ body {
   color:white;
   -webkit-transform:rotate(-2deg);
   transform:rotate(-2deg);
-  
+
 }
 
 #options:hover {
@@ -142,49 +111,19 @@ body {
   color:white;
   -webkit-transform:rotate(-2deg);
   transform:rotate(-2deg);
-  
+
 }
 
-/*
-#left {
-  height:100px;
-    width:600px;
-  background:orange;
-  position:absolute;
-  z-index:6;
-  -webkit-transform:rotate(45deg);
-  transform:rotate(45deg);
-  top:-175px;
-  right:-104px;
-  border-top:1px solid white;
-  
-}
-#right {
-  height:100px;
-  width:600px;
-  background:orange;
-  position:absolute;
-  top:-229px;
-  -webkit-transform:rotate(-45deg);
-  transform:rotate(-45deg);
-  z-index:7;
-  left:-56px;
-  border-top:1px solid white;
-  
-  
-}
 
-*/
-
-#single p {
+#play p {
   position:relative;
   top:2px;
   right:4px;
-  
-  
+
+
 }
 
-#multiplayer {
+#spotify {
   height:50px;
   width:500px;
   background:#006680;
@@ -198,19 +137,19 @@ body {
    -webkit-transition:0.5s;
   transition:0.5s;
   cursor:pointer;
-  
-   
-  
+
+
+
 }
-#multiplayer p {
+#spotify p {
   position:relative;
   top:0px;
   right:9px;
-  
+
 }
 
 #options {
-  
+
   height:50px;
   width:400px;
   background:#006680;
@@ -224,14 +163,14 @@ body {
    -webkit-transition:0.5s;
   transition:0.5s;
   cursor:pointer;
-  
+
 }
 
 #options p {
   position:relative;
   top:0px;
   right:4px;
-  
+
 }
 
 #credits {
@@ -248,11 +187,11 @@ body {
    -webkit-transition:0.5s;
   transition:0.5s;
   cursor:pointer;
-  
+
 }
 
 #credits p {
   position:relative;
   top:0px;
-  
+
 }
