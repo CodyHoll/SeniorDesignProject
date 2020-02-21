@@ -1,15 +1,15 @@
-/* styles */
-/* called by your view template */
-
-/* You might want to try something fancier: */
-/* less: http://lesscss.org/ */
-
+/*-----------------------------
+| Main Window Container       |
+------------------------------*/
+#maincontainer {
+  margin: auto 0;
+}
 * {
   box-sizing: border-box;
 }
 
 body {
-  padding: 5vh 5vw;
+  margin: 0 auto;
 }
 
 p {
