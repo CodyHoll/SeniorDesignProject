@@ -1,9 +1,6 @@
 /*-----------------------------
 | Main Window Container       |
 ------------------------------*/
-#maincontainer {
-  margin: auto 0;
-}
 * {
   box-sizing: border-box;
 }
