@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link id="favicon" href="/img/spotifyLogo.png"> -->
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="../css/asteroid.css">
+    <title>Asteroid Game</title>
+
+  </head>
+  <body>
+    <div id="info">
+      <h1>Canvas Asteroids:</h1>
+      <p>Use [A][S][W][D] or [&larr;][&uarr;][&darr;][&rarr;] to MOVE</p>
+      <p>Use [SPACE] or [K] to SHOOT</p>
+    </div>
+    <div id="scoreboard">
+      <h1>Scoreboard:</h1>
+      <h4>Score: <span id="score">0</span> Lives: <span id="lives">3</span> Level: <span id="level">0</span></h4>
+    </div>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <!-- Spotify Wrapper -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="../js/asteroid.js"></script>
+
+  </body>
+</html>
