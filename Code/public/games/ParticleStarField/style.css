@@ -1,0 +1,34 @@
+body{
+  overflow: hidden;
+  background-color: #000000;
+  margin: 0px;
+  background-image: url("starb.png");
+  background-size: cover;                 
+  background-repeat: no-repeat;
+}
+
+button {
+  background-color: #ffffff;
+  position: absolute;
+  font-family:"Times New Roman";
+  font-size:12px;
+  font-weight:bold;
+  min-width:100px;
+  text-align:center;
+  left: 5px;
+  top: 5px;
+  opacity:0.5;
+}
+
+#dir{
+  background-color: #ffffff;
+  position: absolute;
+  font-family:"Times New Roman";
+  font-size:12px;
+  font-weight:bold;
+  min-width:100px;
+  text-align:center;
+  right: 5px;
+  top: 5px;
+  opacity:0.5;
+}

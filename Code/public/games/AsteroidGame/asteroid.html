@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link id="favicon" href="/img/spotifyLogo.png"> -->
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="../../css/asteroid.css">
+    <title>Asteroid Game</title>
+
+  </head>
+  <body>
+    <div id="info">
+      <h1>Canvas Asteroids:</h1>
+      <p>Use [A][S][W][D] or [&larr;][&uarr;][&darr;][&rarr;] to MOVE</p>
+      <p>Use [SPACE] or [K] to SHOOT</p>
+    </div>
+    <div id="scoreboard">
+      <h1>Scoreboard:</h1>
+      <h4>Score: <span id="score">0</span> Lives: <span id="lives">3</span> Level: <span id="level">0</span></h4>
+    </div>
+
+    <canvas id="canvas">
+    </canvas>
+
+    <!-- Spotify Wrapper & Spotify Requirements -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script type="text/javascript" src="../spotifyReq.js"></script>
+
+    <!-- Custom song lists -->
+    <script type="text/javascript" src="../songs.js"></script>
+
+    <!-- This is all js pages combined into one... To use, comment out all js scripts BELOW here -->
+    <!-- <script type="text/javascript" src="../js/asteroidFullBackup.js"></script> -->
+
+    <!-- Custom JS Objects-->
+    <script type="text/javascript" src="sound.js"></script>
+    <script type="text/javascript" src="pool.js"></script>
+    <script type="text/javascript" src="vec2d.js"></script>
+    <script type="text/javascript" src="particle.js"></script>
+    <script type="text/javascript" src="bullet.js"></script>
+    <script type="text/javascript" src="asteroid.js"></script>
+    <script type="text/javascript" src="ship.js"></script>
+    <script type="text/javascript" src="canvas-asteroids.js"></script>
+
+    <!-- Custon JS main -->
+    <script type="text/javascript" src="main.js"></script>
+
+  </body>
+</html>

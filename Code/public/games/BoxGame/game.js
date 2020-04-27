@@ -79,7 +79,7 @@ document.querySelector("#resume").addEventListener("click", () => {
 });
 
 document.querySelector("#sunflower").addEventListener("click", () => {
-    playSong('0RiRZpuVRbi7oqRdSMwhQY');
+    playSong('42cgYL0K9ut6meaFqJZWI8')
 });
 
 document.querySelector("#thunderAtChorus").addEventListener("click", () => {
