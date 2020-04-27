@@ -17,7 +17,7 @@ function parseHash(hash) {
 document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_KEY) &&
       parseInt(parseInt(localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_EXPIRY_KEY))) > Date.now()) {
-    window.location = "/html/menu.html";
+    window.location = "/menu.html";
   } else {
     if(window.location.hash) {
       const hash = parseHash(window.location.hash);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
           hash['expires_in']) {
         localStorage.setItem(LOCALSTORAGE_ACCESS_TOKEN_KEY, hash['access_token']);
         localStorage.setItem(LOCALSTORAGE_ACCESS_TOKEN_EXPIRY_KEY, Date.now() + 990 * parseInt(hash['expires_in']));
-        window.location = "/html/menu.html";
+        window.location = "/menu.html";
       }
     }
     document.getElementById('login').addEventListener('click', function(e) {
