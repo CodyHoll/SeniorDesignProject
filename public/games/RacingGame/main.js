@@ -241,7 +241,7 @@ var temp = 0;
 function render() {
   temp += 1;
   if(temp == 1) {
-    playSong('2fXz2lLwGb88xhpZJPHHnd');
+    playSong('20MhZssjZLKPEhZBc9hw8h');
   }
   var baseSegment   = findSegment(position);
   var basePercent   = Util.percentRemaining(position, segmentLength);
