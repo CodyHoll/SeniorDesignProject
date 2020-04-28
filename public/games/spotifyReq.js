@@ -10,7 +10,7 @@ if(!accessToken || parseInt(localStorage.getItem(LOCALSTORAGE_ACCESS_TOKEN_EXPIR
 let deviceId = '';
 
 function playSong(id) {
-    let query = '/tracks?id=' + id;
+    let query = 'https://api.spotify.com/v1/me/player/play/tracks?id=' + id;
     return fetch(query).then(e => e.json()).then(data => {
         fetch(`https://api.spotify.com/v1/me/player/play${deviceId && `?device_id=${deviceId}`}`, {
             method: "PUT",
