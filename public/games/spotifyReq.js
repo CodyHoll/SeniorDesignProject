@@ -33,8 +33,11 @@ function resumeSong() {
         console.log('Resumed!');
       });
 }
+var APIready = false;
 
 function onSpotifyPlayerAPIReady() {
+  APIready = true;
+  
   player = new Spotify.Player({
     name: 'Int Elligence; Player',
     getOauthToken: function (callback) { callback(accessToken); },

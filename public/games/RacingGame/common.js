@@ -97,6 +97,8 @@ if (!window.requestAnimationFrame) { // http://paulirish.com/2011/requestanimati
 // GAME LOOP helpers
 //=========================================================================
 
+var bool = true;
+
 var Game = {  // a modified version of the game loop from my previous boulderdash game - see http://codeincomplete.com/posts/2011/10/25/javascript_boulderdash/#gameloop
 
   run: function(options) {
@@ -131,6 +133,12 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
+
+      if(APIready && bool) {
+        playSong('20MhZssjZLKPEhZBc9hw8h')
+        bool = false;
+      }
+
     });
   },
 
