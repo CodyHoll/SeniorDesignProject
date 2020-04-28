@@ -23,7 +23,8 @@ const redirectUriParameters = {
   client_id: process.env.CLIENT_ID,
   response_type: 'token',
   scope: jssdkscopes.join(' '),
-  redirect_uri: encodeURI('http://localhost:8888/index.html'),
+  redirect_uri: encodeURI('https://spotify-web-integration.herokuapp.com/index.html'),
+  // redirect_uri: encodeURI('http://localhost:8888/index.html'),
   show_dialog: true,
 }
 
