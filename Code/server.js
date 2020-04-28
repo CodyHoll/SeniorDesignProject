@@ -1,6 +1,8 @@
 // server.js
 // where your node app starts
 
+var PORT = process.env.PORT || 8888;
+
 // init project
 require('dotenv').config();
 var qs = require('querystring');
@@ -70,6 +72,6 @@ app.get("/spotifyRedirectUri", function (request, response) {
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
