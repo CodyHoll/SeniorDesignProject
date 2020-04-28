@@ -1,4 +1,3 @@
-playSong('20MhZssjZLKPEhZBc9hw8h');
     
 var fps            = 60;                      // how many 'update' frames per second
 var step           = 1/fps;                   // how long is each frame (in seconds)
@@ -589,5 +588,9 @@ function refreshTweakUI() {
   Dom.get('currentFieldOfView').innerHTML    = Dom.get('fieldOfView').value    = fieldOfView;
   Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
 }
+
+document.querySelector('#song').addEventListener("click", () => {
+  playSong('20MhZssjZLKPEhZBc9hw8h');
+});
 
 //=========================================================================
