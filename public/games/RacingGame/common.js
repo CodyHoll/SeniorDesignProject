@@ -130,15 +130,13 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         render();
         stats.update();
         last = now;
-
-        if(APIready && bool) {
-          playSong('20MhZssjZLKPEhZBc9hw8h')
-          bool = false;
-        }
-
         requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
+      if(APIready && bool) {
+        playSong('20MhZssjZLKPEhZBc9hw8h')
+        bool = false;
+      }
     });
   },
 
