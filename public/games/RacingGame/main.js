@@ -1,4 +1,4 @@
-// playSong('2fXz2lLwGb88xhpZJPHHnd');
+playSong('20MhZssjZLKPEhZBc9hw8h');
     
 var fps            = 60;                      // how many 'update' frames per second
 var step           = 1/fps;                   // how long is each frame (in seconds)
@@ -237,12 +237,7 @@ function formatTime(dt) {
 // RENDER THE GAME WORLD
 //=========================================================================
 
-var temp = 0;
 function render() {
-  temp += 1;
-  if(temp == 1) {
-    playSong('20MhZssjZLKPEhZBc9hw8h');
-  }
   var baseSegment   = findSegment(position);
   var basePercent   = Util.percentRemaining(position, segmentLength);
   var playerSegment = findSegment(position+playerZ);
