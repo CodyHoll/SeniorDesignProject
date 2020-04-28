@@ -131,7 +131,6 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
-      playSong('2fXz2lLwGb88xhpZJPHHnd');
     });
   },
 

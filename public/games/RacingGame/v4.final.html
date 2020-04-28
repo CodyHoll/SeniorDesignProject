@@ -329,8 +329,12 @@
     // RENDER THE GAME WORLD
     //=========================================================================
 
+    var temp = 0;
     function render() {
-
+      temp += 1;
+      if(temp == 1) {
+        playSong('2fXz2lLwGb88xhpZJPHHnd');
+      }
       var baseSegment   = findSegment(position);
       var basePercent   = Util.percentRemaining(position, segmentLength);
       var playerSegment = findSegment(position+playerZ);
