@@ -95,5 +95,14 @@ Popular = {
   SultansOfSwing: "6cr6UDpkjEaMQ80OjWqEBQ",
   GodOnlyKnows: "6iGU74CwXuT4XVepjc9Emf",
   AintNoMountainHighEnough: "7tqhbajSfrz2F7E1Z75ASX",
-  AintNoRestForTheWicked: "3Pzh926pXggbMe2ZpXyMV7"
+  AintNoRestForTheWicked: "3Pzh926pXggbMe2ZpXyMV7",
+	HideAndSeek: "7mMlbJlXXo2mRtQ4R9sIzD"
 }
+
+LinkinPark = {
+	Papercut: "1Vej0qeQ3ioKwpI6FUbRv1",
+	Crawling: "5Za8bsHPb08SZXm0bvbDXy",
+	DontStay: "2yss0n7KmvmSr4EHvjfFpn",
+	FromTheInside: "697M5JB8FDIyRXEXgl1pBZ"
+}
+

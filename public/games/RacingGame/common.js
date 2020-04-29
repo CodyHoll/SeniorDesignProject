@@ -133,10 +133,13 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
-      if(APIready && bool) {
-        playSong('20MhZssjZLKPEhZBc9hw8h')
-        bool = false;
-      }
+
+      setTimeout(function() { playSong(LinkinPark.Papercut) }, 2000);  // giving the Spotify API 2 seconds to get ready before making a song request
+
+      // if(APIready && bool) {
+      //   playSong('20MhZssjZLKPEhZBc9hw8h')
+      //   bool = false;
+      // }
     });
   },
 
