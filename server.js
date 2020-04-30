@@ -1,3 +1,6 @@
+// DOCUMENTATION: https://github.com/thelinmichael/spotify-web-api-node
+// DOCUMENTATION: https://developer.spotify.com/documentation/web-playback-sdk/reference/ 
+
 // server.js
 // where your node app starts
 
