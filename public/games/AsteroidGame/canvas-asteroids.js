@@ -73,7 +73,8 @@ window.onload = function()
 	score = document.getElementById('score');
 	lives = document.getElementById('lives');
 	level = document.getElementById('level');
-	infoBox = document.querySelector("#info");
+	controls = document.querySelector("#controls");
+	info = document.querySelector("#info");
 
 	window.onresize();
 

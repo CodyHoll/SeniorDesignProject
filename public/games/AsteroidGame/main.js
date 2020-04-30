@@ -1,3 +1,13 @@
+function toggleInfo() {
+  var x = document.getElementById("info");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+	}
+	x.style.fontSize = "40px";
+}
+
 function loop()
 {
 	updateShip();
@@ -171,18 +181,17 @@ function generateAsteroid(x, y, radius, type)
 
 function levelTwo() {
 	level.innerHTML = 2;
-	// playSong('57bgtoPSgt236HzfBOd8kj');
-	playSong(UsualSongs.Thunderstruck)
-	// playSong(StarWars.MainTitle)
-	if(typeof(infoBox) != 'undefined' && infoBox != null) {
-		infoBox.remove();
+	playSong(Movies.MissionImpossible)
+	if(typeof(controls) != 'undefined' && controls != null) {
+		controls.remove();
 	}
 	// ship.strokeStyle = 'blue';
 }
 
 function levelThree() {
 	level.innerHTML = 3;
-	playSong('42cgYL0K9ut6meaFqJZWI8');
+	playSong(Movies.JamesBond);
+	setTimeout(function() { seekSong(30) }, 500); // skip to 30sec into song (spotifyReq.js)
 }
 
 function checkCollisions()
@@ -211,12 +220,25 @@ function checkBulletAsteroidCollisions()
 
 				destroyAsteroid(a);
 				score.innerHTML = parseInt(score.innerHTML) +1;
-				// When score is twenty go to lvl 2
-				if(score.innerHTML == 20){
+				if(score.innerHTML == 1) {
+					toggleInfo();
+				}
+				// When score is 10 go to lvl 2
+				else if(score.innerHTML == 10){
 					levelTwo();
+					info.innerHTML = "LEVEL 2";
+					toggleInfo();
+				}
+				else if(score.innerHTML == 15){
+					toggleInfo();
 				}
 				else if(score.innerHTML == 50) {
 					levelThree();
+					info.innerHTML = "LEVEL 3";
+					toggleInfo();
+				}
+				else if(score.innerHTML == 55){
+					toggleInfo();
 				}
 				// bulletAsteroidCollisionSound
 				new sound("sounds/bang.mp3").play();
@@ -521,3 +543,4 @@ function resetAsteroids()
 		a.blacklisted = true;
 	}
 }
+

@@ -7,7 +7,7 @@ let UsualSongs = {
 let SpaceSongs = {
   SpaceOddity: "72Z17vmmeQKAg8bptWvpVG",
   Spaceman: "0uQcP7QVoLvaFsORsdrgNh",
-  DuelOfTheFates: "1ghlpxVfPbFH2jenrv9vVw",
+  // DuelOfTheFates: "1ghlpxVfPbFH2jenrv9vVw",
   MainTitle: "20MhZssjZLKPEhZBc9hw8h",
   ImperialMarch: "5mLbtaBI1tOwe2yZvS9ofs",
   LordOfTheRings: "51THoWfQJgdyj248y8tJPa",

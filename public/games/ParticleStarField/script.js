@@ -1,8 +1,8 @@
 // ...........................settings..............................
 var actionZ = 0; //on left click action
 var rotationA = 3.1; // amount of rotation
-var movementSpeed = 9.5; //9.5 if you start w/ spaceman is perfect
-var zoomSpeed = 3;
+var movementSpeed = 20; //9.5 if you start w/ spaceman is perfect
+var zoomSpeed = 10;
 var totalObjects = 40000;
 //..................................................................
 
@@ -52,12 +52,40 @@ function pickRandomSong() {
   return randomSong
 }
 
+// mix up order of an array (used for song list)
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+var cur = 0;
 var bool;
 bool = true; 
+songOrder = shuffle(Object.values(SpaceSongs));
 
 function songCall(){
   if(bool){
-    playSong(pickRandomSong())
+    playSong(songOrder[cur]);
+    if(songOrder[cur] == SpaceSongs.SpaceOddity || songOrder[cur] == SpaceSongs.LordOfTheRings || songOrder[cur] == SpaceSongs.DarkKnightMain){
+      setTimeout(function() { seekSong(30) }, 500); // skip to 30sec into song (spotifyReq.js)
+    }
+
+    if(cur < songOrder.length -1){ cur += 1; }
+    else { cur = 0; }
+
     bool = false
   }
 }
@@ -124,19 +152,10 @@ function onWindowResize() {
   
 }
 
-var i = 0;
+// var i = 0;
 function onDocumentMouseDown(){
   event.preventDefault();
   actionZ = -zoomSpeed;
-  
-  i += 1;
-  // first click
-  if(i == 1) {
-    // remove instructions
-    document.querySelector("#dir").remove();
-    // playSong(pickRandomSong());
-    playSong(SpaceSongs.Spaceman);
-  }
 }
 
 function onDocumentMouseUp(){
@@ -146,10 +165,8 @@ function onDocumentMouseUp(){
 // to change the song
 button.addEventListener("click", () => {
   playSong(pickRandomSong());
-  playSong(SpaceSongs.Spaceman);
 });
 
+setTimeout(function() { playSong("1ghlpxVfPbFH2jenrv9vVw") }, 1000);  // giving the Spotify API 1 second to get ready before making a song request
 
-// if song == spaceman
-  // wait 31 seconds and turn...
-  // or.. have all turns be 31 second intervals
+

@@ -1,3 +1,5 @@
+// DOCUMENTATION: https://developer.spotify.com/documentation/web-playback-sdk/reference/
+
 var player;
 
 const LOCALSTORAGE_ACCESS_TOKEN_KEY = 'spotify-audio-analysis-playback-token';
@@ -33,6 +35,16 @@ function resumeSong() {
         console.log('Resumed!');
       });
 }
+
+function seekSong(seconds) {
+  player.seek(seconds * 1000 )
+}
+
+// volume must be between 0.1 and 1
+function setVolume(vol) {
+  player.setVolume(vol)
+}
+
 var APIready = false;
 
 function onSpotifyPlayerAPIReady() {

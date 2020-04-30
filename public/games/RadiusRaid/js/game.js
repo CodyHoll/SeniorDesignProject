@@ -960,6 +960,7 @@ $.setState = function( state ) {
 				$.audio.play( 'levelup' );
 				$.setState( 'play' );
 				playSong('57bgtoPSgt236HzfBOd8kj');
+				setTimeout(function() { seekSong(31) }, 500);
 			}
 		} );
 		$.buttons.push( playButton );
