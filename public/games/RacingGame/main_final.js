@@ -589,6 +589,8 @@ function refreshTweakUI() {
   Dom.get('currentFogDensity').innerHTML     = Dom.get('fogDensity').value     = fogDensity;
 }
 
+setTimeout(function() { playSong(LinkinPark.Papercut) }, 2000);  // giving the Spotify API 2 seconds to get ready before making a song request
+
 document.querySelector('#song').addEventListener("click", () => {
   playSong('20MhZssjZLKPEhZBc9hw8h');
 });

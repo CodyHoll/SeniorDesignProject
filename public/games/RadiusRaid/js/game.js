@@ -118,6 +118,8 @@ $.init = function() {
 Reset
 ==============================================================================*/
 $.reset = function() {
+	$.hidenseek = 0;
+
 	$.indexGlobal = 0;
 	$.dt = 1;
 	$.lt = 0;
@@ -959,8 +961,8 @@ $.setState = function( state ) {
 				$.reset();
 				$.audio.play( 'levelup' );
 				$.setState( 'play' );
-				playSong('57bgtoPSgt236HzfBOd8kj');
-				setTimeout(function() { seekSong(31) }, 500);
+				playSong(UsualSongs.Thunderstruck);
+				setTimeout(function() { seekSong(31) }, 1000);
 			}
 		} );
 		$.buttons.push( playButton );
@@ -1107,6 +1109,8 @@ $.setState = function( state ) {
 				$.reset();
 				$.audio.play( 'levelup' );
 				$.setState( 'play' );
+				playSong(UsualSongs.Thunderstruck);
+				setTimeout(function() { seekSong(31) }, 500);
 			}
 		} );
 		$.buttons.push( resumeButton );
@@ -1119,6 +1123,7 @@ $.setState = function( state ) {
 			scale: 3,
 			title: 'MENU',
 			action: function() {
+				pauseSong();
 				$.setState( 'menu' );
 			}
 		} );
@@ -1351,6 +1356,12 @@ $.setupStates = function() {
 
 		// handle gameover
 		if( $.hero.life <= 0 ) {
+			if ($.hidenseek == 0){
+				playSong(Popular.HideAndSeek)
+				setTimeout(function() { seekSong(172.6) }, 1000);
+				$.hidenseek = 1;
+			}
+
 			var alpha = ( ( $.gameoverTick / $.gameoverTickMax ) * 0.8 );
 				alpha = Math.min( 1, Math.max( 0, alpha ) );
 			$.ctxmg.fillStyle = 'hsla(0, 100%, 0%, ' + alpha + ')';
