@@ -1,5 +1,5 @@
-const LOCALSTORAGE_ACCESS_TOKEN_KEY = 'spotify-audio-analysis-playback-token';
-const LOCALSTORAGE_ACCESS_TOKEN_EXPIRY_KEY = 'spotify-audio-analysis-playback-token-expires-in';
+const LOCALSTORAGE_ACCESS_TOKEN_KEY = 'playback-token';
+const LOCALSTORAGE_ACCESS_TOKEN_EXPIRY_KEY = 'playback-token-expires-in';
 
 function parseHash(hash) {
   return hash
