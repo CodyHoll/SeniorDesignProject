@@ -5,6 +5,7 @@ window.onload=function() {
   xv=yv=0;
   trail=[];
   tail = 5;
+  initialSongRequest = true;
   canv=document.getElementById("gc");
   ctx=canv.getContext("2d");
   document.addEventListener("keydown",keyPush);
@@ -42,8 +43,10 @@ function game() {
   }
 
   if(ax==px && ay==py) {
-      console.log("HI");
-      playSong('57bgtoPSgt236HzfBOd8kj');
+      if (initialSongRequest) {
+          playSong('57bgtoPSgt236HzfBOd8kj');
+          initialSongRequest = false;
+      }
       tail++;
       ax=Math.floor(Math.random()*tc);
       ay=Math.floor(Math.random()*tc);
