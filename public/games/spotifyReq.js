@@ -53,7 +53,7 @@ function onSpotifyPlayerAPIReady() {
   player = new Spotify.Player({
     name: 'Int Elligence; Player',
     getOauthToken: function (callback) { callback(accessToken); },
-    volume: 0.8
+    volume: 0.6
   });
 
   // Ready
