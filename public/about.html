@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+  </head>
+
+  <body>
+
+    <!-- NAVBAR -->
+    <nav id="mainNavbar" class="navbar navbar-dark dark-bg navbar-expand-md"> 
+      <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="index.html" class="navLink px-3">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="navLink px-3" style="text-decoration: underline;">About</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main" class="dark-bg">
+      
+      <section class="jumbotron jumbotron-fluid text-center dark-bg ">
+        <div class="container">
+          <h1>Int Elligence;</h1>
+          <p class="lead">Integrate any Spotify song into your game. Our project uses Spotify's API to make conditional song calls based on game state. We have generalized this functionality to make it trival for other developers. Enjoy.</p>
+          <p>
+            <a href="https://github.com/CodyHoll/SeniorDesignProject" class="btn btn-lg btn-secondary my-2">Github Page</a>
+            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+          </p>
+        </div>
+      </section>
+
+      <section class="container">
+        <p> The purpose of this website is to showcase the functionality that we have created with Spotify's API and it's potential to enrich different mediums of entertainment, such as gaming.
+            When it comes time for designers to choose the music that best fits their art, there are numerous factors worth consider.
+            Budget; is it worth paying musicians for their music?
+            Immersion; does the music provide the comsumer with a enhanced experience, that without music, would be measurably worse?
+            Time; if an origial soundtrack is produced, how long will it take? Will the money spent be worth it? 
+            Traditionally, designers have three choices when deciding the music for their art.
+            1) Pay royalties to existing artist for the permission to use their music. 
+            2) Use copyright free music.
+            3) Create an original soundtrack. 
+            These options all have costs associated with them ranging from financial costs, to the cost creating a product with unfamilar and potentially unfavorable music. 
+            Our goal was to create a 4th option to choose from. 
+            4) Use familiar and lovable music, while passing the costs off from the producers, to the consumers. 
+            Instead of the designers paying large lump sums of money to use copyrighted music, we only ask the consumers to chip in $5/month for a Spotify subscription, that most of them probably have already. 
+            We then make conditional song calls, on the users behalf, to Spotify's database of music, via Spotify's public API. 
+
+            The potential for applications to be built on this type of model is massive. 
+            It isn't difficult to imagine an original Netflix series that has the viewers connect their Netflix account with their premium Spotify account.
+            This would allow the show to integrate any songs available to Spotify users, in their product.
+            And the best thing about this model is that all participants benefit. In game theory this in known as a win-win game.
+
+            Artist of the songs will recieve increased financial compensation as a result of more plays on Spotify. 
+            Spotify will see a spike in their subscription count as a result of subscriptions being a requirement to participate in the type of consumption this model recomends. 
+            The designers in this model can integrate better music into their product and sell more copies.
+            Consumers will be able to enjoy content integrated with music that would typically be copyrighted and unavailable.
+
+             
+        </p>
+        <p>It should be acknowledged that we aren't game developers, and as a result, the games featured on this page are not fully fledged projects in their own right.</p>
+        <p class="mb-0">We aimed to show what is possible to acomplish with our generalized library that connects users/players with Spotify.</p>
+      </section>
+      
+    </main>
+
+    <footer class="mastfoot mt-auto dark-bg">
+      <div class="inner">
+        <p>A project using Spotify's <a href="https://developer.spotify.com/documentation/">Web API.</a> Visit our <a href="https://github.com/CodyHoll/SeniorDesignProject">Github</a>.</p>
+        <p>© 2020 All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Spotify Wrapper & Spotify Requirements -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script type="text/javascript" src="games/spotifyReq.js"></script>
+
+    <!-- Custom JS -->
+    <script src="games/DontClick/dontClick.js"></script>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

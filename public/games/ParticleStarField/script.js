@@ -72,8 +72,7 @@ function shuffle(array) {
 }
 
 var cur = 0;
-var bool;
-bool = true; 
+var bool = true; 
 songOrder = shuffle(Object.values(SpaceSongs));
 
 function songCall(){
@@ -167,6 +166,6 @@ button.addEventListener("click", () => {
   playSong(pickRandomSong());
 });
 
-setTimeout(function() { playSong("1ghlpxVfPbFH2jenrv9vVw") }, 1000);  // giving the Spotify API 1 second to get ready before making a song request
+setTimeout(function() { playSong("20MhZssjZLKPEhZBc9hw8h") }, 1000);  // giving the Spotify API 1 second to get ready before making a song request
 
 
