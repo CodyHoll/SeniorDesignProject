@@ -9,6 +9,4 @@ The implications of this project are massive for the entertainment industry.
 
 Instead of having massive overhead purchasing/creating music for your games/shows/movies, imagine an environment where you simply just link your Netflix account to your Spotify account. Now shows can play popular songs on the users behalf and not concern themselves with royalties or expenses because Spotify has that covered. 
 
-Motto: Under promise, over deliver
-
 Trello board link: https://trello.com/b/KmAMxkkm/senior-design-project
