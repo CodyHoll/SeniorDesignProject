@@ -1,7 +1,5 @@
 # SeniorDesignProject
 
-Trello board link: https://trello.com/b/KmAMxkkm/senior-design-project
-
 Website link: https://spotify-web-integration.herokuapp.com/menu.html
 
 Note: You need a valid Spotify Premium account in order to play music and access the project. 
@@ -13,3 +11,4 @@ Instead of having massive overhead purchasing/creating music for your games/show
 
 Motto: Under promise, over deliver
 
+Trello board link: https://trello.com/b/KmAMxkkm/senior-design-project
